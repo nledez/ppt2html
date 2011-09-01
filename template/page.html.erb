@@ -1,0 +1,89 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="<%= @parameters[:relative_path] %>assets/jquery.js"></script>
+    <script type="text/javascript" src="<%= @parameters[:relative_path] %>assets/jstree/jquery.jstree.js"></script>
+    <link href="<%= @parameters[:relative_path] %>assets/styles.css" media="screen" rel="stylesheet" type="text/css" />
+    <script src="<%= @parameters[:relative_path] %>assets/script.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      function when_tree_is_ready() {
+        $("#p<%= @current_page %> a:first").addClass("selected");
+        $("#sommaire").jstree("open_node", $("#p<%= @node_opened %>"));
+        $("#sommaire").css({'visibility': 'visible'});
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <table>
+        <tr>
+          <td id="logo" class="logo"><img src="<%= @parameters[:relative_path] %>assets/logo.png"></td>
+          <td id="nav-bar" class="nav-bar">
+            <% unless @parameters[:version].nil? %>
+              <span id="offre" class="offre">Exemple avec variable : <%= @parameters[:version] %></span>
+            <% else %>
+              <span id="offre" class="offre">Exemple sans la variable</span>
+            <% end %>
+            <br/>
+            <br/>
+            <table>
+              <tr>
+                <td id="nav-first" class="nav-first">
+                  <% if @current_page > 1 %>
+                    <a href="page_1.html" title="première page"><img src="<%= @parameters[:relative_path] %>assets/fleche_prev.png" border="0"></a>
+                  <% end %>
+                </td>
+                <td id="nav-prev" class="nav-prev">
+                  <% if @current_page > 1 %>
+                    <a href="page_<%= @current_page - 1 %>.html" title="page précédente"><img src="<%= @parameters[:relative_path] %>assets/fleche_g.png" border="0"></a>
+                  <% end %>
+                </td>
+              <td id="nav-page" class="nav-page">Page <%= @current_page %></td>
+              <td id="nav-next" class="nav-next">
+                <% if @current_page < @slide_count %>
+                  <a href="page_<%= @current_page + 1 %>.html" title="page suivante"><img src="<%= @parameters[:relative_path] %>assets/fleche_d.png" border="0"></a>
+                <% end %>
+              </td>
+              <td id="nav-last" class="nav-last">
+                <% if @current_page < @slide_count %>
+                  <a href="page_<%= @slide_count %>.html" title="dernière page"><img src="<%= @parameters[:relative_path] %>assets/fleche_next.png" border="0"></a>
+                <% end %>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td id="ppt_icon" class="ppt_icon">
+          Télécharger
+          <a href="<%= @parameters[:ppt] %>" type="application/vnd.ms-powerpoint" title="document powerpoint"><img src="<%= @parameters[:relative_path] %>assets/powerpoint.png"></a><br/>
+        </td>
+      </tr>
+      <tr>
+        <td id="sommairetd" class="sommairetd">
+          <div id="sommaire" class="sommaire">
+            <%= @sommaire %>
+          </div>
+        </td>
+        <td id="diapo" class="diapo"><img src="images/Diapositive<%= @current_page %>.PNG"><br/></td>
+        <td id="index" class="index">
+          <div id="div_index" class="div_index">
+            <% unless @parameters[:version].nil? %>
+              Versions :<br/>
+              <br/>
+              <% if @parameters[:version] != "Complete" %>
+                <a href="<%= @parameters[:relative_path] %>complete/page_1.html">Complete</a><br/>
+              <% end %><%if @parameters[:version] != "Light" %>
+                <a href="<%= @parameters[:relative_path] %>light/page_1.html">Light</a><br/>
+              <% end %><% if @parameters[:version] != "Extra-light" %>
+                <a href="<%= @parameters[:relative_path] %>extra_light/page_1.html">Extra light</a><br/>
+              <% end %>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+</html>

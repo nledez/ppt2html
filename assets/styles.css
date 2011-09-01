@@ -1,0 +1,98 @@
+body {
+  background: white url(bg_body.png) repeat-x;
+}
+
+table {
+  border-style: solid;
+  border-width: 0px;
+}
+
+tr {
+  border-style: solid;
+  border-width: 0px;
+}
+
+td {
+  border-style: solid;
+  border-width: 0px;
+}
+
+.selected {
+  background-color: gray;
+}
+
+td#ppt_icon {
+  width: 48px;
+  text-align: center;
+}
+
+td#ppt_icon img {
+  border-width: 0px;
+}
+
+td#diapo {
+  border-style: solid;
+  border-width: 1px;
+  padding: 5px;
+}
+
+td#index {
+  vertical-align: top;
+  text-align: center;
+}
+
+td#index div {
+  position: relative;
+  top: 40px;
+}
+
+td#nav-bar {
+  text-align: center;
+}
+
+td#nav-bar table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td#sommairetd {
+  vertical-align: top;
+  text-align: left;
+}
+
+div#sommaire {
+  width: 220px;
+  height: 100px;
+  position: relative;
+  top: 40px;
+  visibility: hidden;
+}
+
+#offre {
+  font-weight: bold;
+}
+
+#nav-first {
+  width: 32px;
+  height: 16px;
+}
+
+#nav-prev {
+  width: 16px;
+  height: 16px;
+}
+
+#nav-page {
+  width: 70px;
+  height: 16px;
+}
+
+#nav-next {
+  width: 16px;
+  height: 16px;
+}
+
+#nav-last {
+  width: 32px;
+  height: 16px;
+}

@@ -1,0 +1,7 @@
+--- 
+:destination_path: Extractions_slides
+:filein: Extractions_slides/commentaires.txt
+:template: ../template/page.html.erb
+:relative_path: ../../
+:version: 
+:ppt: ../Extractions.pptm
